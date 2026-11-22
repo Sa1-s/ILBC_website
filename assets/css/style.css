@@ -645,3 +645,82 @@ form.compose input,form.compose select,form.compose textarea,.checks input,.quiz
 .page-hero .wrap{padding-top:var(--hh)}
 @media(max-width:700px){.page-hero::before{background:linear-gradient(180deg,rgba(240,250,230,.84),rgba(240,250,230,.6) 60%,rgba(240,250,230,.25))}}
 @media(max-width:700px){.page-hero::before{background:linear-gradient(180deg,rgba(240,250,230,.9),rgba(240,250,230,.82) 62%,rgba(240,250,230,.5))}}
+
+/* ===== Polish pass: legibility, touch targets, focus ===== */
+.marquee span b{color:var(--ink-soft)}
+.marquee span::after{color:var(--sage-600)}
+.hex p{font-size:clamp(.78rem,calc(var(--W) * .056),.92rem);color:var(--ink-2)}
+.footer h4{font-size:.78rem;letter-spacing:.12em}
+.sticker{font-size:.8rem}
+.orbit-wrap .slot .sticker{font-size:.78rem}
+@media(max-width:560px){.orbit-wrap .slot .sticker{font-size:.75rem;padding:5px 10px}}
+.link-arrow{display:inline-flex;align-items:center;min-height:44px}
+.footer ul a,.footer address a{display:inline-flex;align-items:center;min-height:44px;padding:0}
+.footer ul{gap:0}
+.footer .wrap{padding-bottom:10px}
+::selection{background:var(--mint-3,#d6ebc3);color:var(--ink)}
+:focus-visible{outline:3px solid var(--sage-600);outline-offset:3px;border-radius:6px}
+body{accent-color:var(--sage-600);caret-color:var(--sage-600)}
+.lead,.page-hero p,.sec p{max-width:68ch}
+
+/* ===== Bigger type on larger screens ===== */
+@media(min-width:1100px){html{font-size:112.5%}:root{--wrap:1240px}}
+@media(min-width:1500px){html{font-size:125%}:root{--wrap:1360px}}
+@media(max-width:1099px){html{font-size:106%}}
+@media(max-width:560px){html{font-size:100%}}
+
+/* ===== No strip above banners: header height is fixed, banners tuck 2px under it ===== */
+:root{--hh:calc(5.7rem + env(safe-area-inset-top,0px))}
+.header{height:var(--hh);box-sizing:border-box}
+.page-hero{margin-top:calc(-1*var(--hh) - 2px)}
+.page-hero .wrap{padding-top:calc(96px + 2px)}
+.hero{margin-top:calc(-1*var(--hh) - 2px);padding-top:calc(var(--hh) + 2px)}
+
+/* ===== Cursive header ribbon ===== */
+@font-face{font-family:'Dancing Script';font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/dancing-script-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Dancing Script';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/dancing-script-latin-700-normal.woff2) format('woff2')}
+.brand b,.nav a{font-family:'Dancing Script','Segoe Script','Brush Script MT',cursive;font-weight:700;letter-spacing:0}
+.brand b{font-size:1.55rem;line-height:1}
+.nav a{font-size:1.28rem;padding:7px 15px}
+@media(max-width:860px){.nav a{font-size:1.45rem}.brand b{font-size:1.4rem}}
+
+/* ===== More flowing script for the ribbon ===== */
+@font-face{font-family:'Great Vibes';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/great-vibes-latin-400-normal.woff2) format('woff2')}
+.brand b,.nav a{font-family:'Great Vibes','Dancing Script','Segoe Script',cursive;font-weight:400;letter-spacing:.01em;text-shadow:.4px 0 currentColor}
+.brand b{font-size:2rem;line-height:1}
+.nav a{font-size:1.6rem;padding:4px 14px;line-height:1.4}
+@media(max-width:1180px){.nav a{font-size:1.45rem;padding:4px 10px}}
+@media(max-width:860px){.nav a{font-size:1.8rem;padding:10px 18px}.brand b{font-size:1.7rem}}
+@media(min-width:861px) and (max-width:1180px){.brand b{font-size:1.35rem;white-space:nowrap}.nav a{font-size:1.2rem;padding:4px 7px}.nav ul{gap:0}.header .bar{gap:6px}}
+@media(min-width:861px) and (max-width:980px){.brand b{font-size:1.15rem}.nav a{font-size:1.1rem;padding:4px 5px}}
+
+@media(min-width:861px) and (max-width:1130px){
+  .burger{display:block;position:relative;z-index:151;background:#fff}
+  .nav{position:fixed;top:0;right:0;bottom:0;left:auto;height:100vh;height:100dvh;width:min(340px,88vw);background:var(--mint-1);border-left:3px solid var(--edge-soft);padding:100px 22px 30px;transform:translateX(105%);transition:transform .45s var(--ease),visibility 0s .45s;visibility:hidden;z-index:149}
+  .nav.open{transform:none;visibility:visible;transition-delay:0s}
+  .nav ul{flex-direction:column;align-items:stretch;gap:8px}
+  .nav a{font-size:1.8rem;padding:10px 18px;background:#fff;border:2px solid var(--edge-soft)}
+  .nav a.cta{margin:10px 0 0;text-align:center}
+  .nav{background:#aed6a9}
+  .brand b{font-size:1.5rem}
+}
+
+/* ===== Courgette: readable, friendly script for the ribbon ===== */
+@font-face{font-family:'Courgette';font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/courgette-latin-400-normal.woff2) format('woff2')}
+.brand b,.nav a{font-family:'Courgette','Segoe Script','Brush Script MT',cursive;font-weight:400;letter-spacing:0;text-shadow:none}
+.brand b{font-size:1.45rem;line-height:1.1}
+.nav a{font-size:1.15rem;padding:7px 13px;line-height:1.4}
+@media(max-width:1180px){.nav a{font-size:1.08rem;padding:7px 9px}}
+@media(min-width:861px) and (max-width:1180px){.brand b{font-size:1.25rem}}
+@media(max-width:860px){.nav a{font-size:1.45rem;padding:12px 18px}.brand b{font-size:1.3rem}}
+@media(min-width:861px) and (max-width:1130px){.nav a{font-size:1.45rem;padding:12px 18px}.brand b{font-size:1.3rem}}
+
+/* ===== Kalam: block letters with a light handwritten slant ===== */
+@font-face{font-family:'Kalam';font-style:normal;font-weight:700;font-display:swap;src:url(../fonts/kalam-latin-700-normal.woff2) format('woff2')}
+.brand b,.nav a{font-family:'Kalam','Segoe Print','Comic Sans MS',cursive;font-weight:700;letter-spacing:0;text-shadow:none}
+.brand b{font-size:1.2rem;line-height:1.1}
+.nav a{font-size:1rem;padding:8px 13px;line-height:1.4}
+@media(max-width:1230px){.nav a{font-size:.95rem;padding:8px 10px}}
+@media(min-width:861px) and (max-width:1230px){.brand b{font-size:1.08rem}}
+@media(max-width:860px){.nav a{font-size:1.25rem;padding:12px 18px}.brand b{font-size:1.1rem}}
+@media(min-width:861px) and (max-width:1130px){.nav a{font-size:1.25rem;padding:12px 18px}.brand b{font-size:1.1rem}}
