@@ -1144,3 +1144,8 @@ a{color:var(--maroon-d)}
 
 .page-hero::before{background:rgba(252,245,230,.42)}
 @media(max-width:700px){.page-hero::before{background:rgba(252,245,230,.5)}}
+
+/* Round 19: give to-next the same gold ring as to-top; kill the leftover backdrop-filter
+   blur on the active nav pill (it's solid now, the blur was just smudging the pattern behind it) */
+.to-next,.to-next:nth-child(n){border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-b),0 10px 22px rgba(122,10,32,.25)}
+.nav a[aria-current="page"],.nav a.cta[aria-current="page"]{-webkit-backdrop-filter:none;backdrop-filter:none}
