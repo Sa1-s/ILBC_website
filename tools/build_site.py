@@ -60,7 +60,7 @@ def footer():
 </div>
 <div class="foot-bar"><div class="wrap">
 <div class="fb-left"><span class="copy">&copy; I Love Being Catholic</span><button type="button" class="cookie-manage">Manage cookies</button><button type="button" class="ed-lock" aria-label="Site editor sign in" title="Site editor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></button></div>
-<div class="credit"><span>Developed by</span><img src="assets/img/sixjars-color.png" alt="Six Jars Global" width="837" height="267"></div>
+<div class="credit"><span>Developed by Six Jars Global</span></div>
 </div></div></footer>
 <div class="cookie" id="cookie" role="dialog" aria-labelledby="ck-t" aria-live="polite" hidden>
 <div><b id="ck-t">Cookies and storage</b><p>This site uses only essential browser storage to remember your progress, checklists and cookie choice. It does not use advertising or tracking cookies.</p></div>

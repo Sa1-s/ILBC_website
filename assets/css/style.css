@@ -1064,3 +1064,26 @@ a{color:var(--maroon-d)}
 .band-w .card,.band-w .stat,.band-w .scroller .ucard,.band-w .scroller .ucard:nth-child(even),.band-w .arches .card,.band-w .arches .card:nth-child(2){background:#fff}
 .band-w .hex::before,.band-w .hexwrap:nth-child(even) .hex::before{background:#fff}
 .band-w .flow li,.band-w .time-pill{background:#fff}
+
+/* Round 10: footer credit text-only (handled in build2.py), arches reshape away from arch/tombstone,
+   Sunday/Night stepper spacing, consistent frosted-glass nav panels, darker cross with longer golden rays */
+.sched{gap:20px;row-gap:24px;margin:26px 0}
+.dot{min-width:78px;gap:8px}
+.dot i{width:52px;height:52px}
+
+.arches .card{border-radius:26px;padding:34px 28px 30px;text-align:left;align-items:flex-start;min-height:320px;position:relative;overflow:visible;border:1px solid rgba(212,167,63,.4);background:linear-gradient(165deg,#fff 0%,var(--mint-5) 100%);box-shadow:0 14px 30px rgba(122,10,32,.1)}
+.arches .card::before{content:none}
+.arches .card .ic{position:static;top:auto;left:auto;transform:none;width:56px;height:56px;border-radius:16px;border:0;box-shadow:0 6px 14px rgba(122,10,32,.2);margin:0 0 18px}
+.arches .card .sticker{margin-top:0}
+.arches .card h3,.arches .card p{text-align:left}
+.arches .card .link-arrow{margin-top:auto;align-self:flex-start}
+@media(max-width:860px){.arches .card{text-align:left;align-items:flex-start}}
+
+.nav a[aria-current="page"],.nav a.cta[aria-current="page"]{background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--ink);border:2px solid rgba(255,255,255,.8)}
+@media(hover:hover){.nav a:hover{background:rgba(255,255,255,.35);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}}
+@media(max-width:860px){.nav a[aria-current="page"]{background:rgba(255,255,255,.65);color:var(--maroon-d);border-color:rgba(255,255,255,.85)}}
+
+.cross-box::before{background:repeating-conic-gradient(rgba(212,167,63,.6) 0 2deg,transparent 2deg 15deg);-webkit-mask:radial-gradient(circle,transparent 38%,#000 39%,#000 82%,transparent 83%);mask:radial-gradient(circle,transparent 38%,#000 39%,#000 82%,transparent 83%)}
+.cross-box::after{border-color:var(--gold-b)}
+.cross-box path{stroke:var(--ink)}
+.cross-box .lbl{color:var(--ink-2)}
