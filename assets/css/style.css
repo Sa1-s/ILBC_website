@@ -1041,3 +1041,11 @@ a{color:var(--maroon-d)}
 .res-card .tog{display:inline-flex;align-items:center;gap:8px;color:var(--maroon)}
 .res-card .tog::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .25s}
 .res-card .tog[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}
+/* Pathway pull quote */
+.pullquote{position:relative;margin:0;padding:clamp(34px,5vw,52px) clamp(24px,5vw,60px) clamp(30px,4vw,42px);border-radius:28px;text-align:center;color:#fcf5e6;background:radial-gradient(120% 90% at 50% 0%,#b3173a 0%,var(--maroon) 45%,#5e0a1d 100%);box-shadow:0 18px 40px rgba(94,10,29,.25);overflow:hidden;isolation:isolate}
+.pullquote::before{content:"";position:absolute;inset:10px;border:1.5px solid rgba(212,167,63,.65);border-radius:20px;pointer-events:none}
+.pullquote::after{content:"";position:absolute;inset:0;z-index:-1;background:repeating-linear-gradient(115deg,rgba(252,245,230,.05) 0 2px,transparent 2px 26px)}
+.pq-mark{display:block;font:700 5rem/.6 var(--serif);color:var(--gold-b);height:.45em;margin-bottom:10px}
+.pullquote blockquote{margin:0 auto;max-width:34ch;font:500 clamp(1.3rem,2.7vw,1.85rem)/1.45 var(--serif);letter-spacing:.005em}
+.pullquote em{font-style:italic;font-weight:700;color:#f3cf6e}
+.pq-rule{display:block;width:64px;height:3px;border-radius:3px;margin:20px auto 0;background:var(--gold-b)}
