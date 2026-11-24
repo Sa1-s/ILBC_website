@@ -74,9 +74,9 @@ def cta(title='An invitation to begin', text='Bring together adults who want to 
 <h2 data-reveal>{title}</h2><p data-reveal style="--d:.1s">{text}</p>
 <div class="btns" data-reveal style="--d:.2s"><a class="btn gold" href="{b1[0]}">{b1[1]}{ARROW}</a><a class="btn light" href="{b2[0]}">{b2[1]}</a></div></div></section>'''
 
-def page(fname, title, desc, body, cta_html=None):
+def page(fname, title, desc, body, cta_html=None, band_start=0):
     import re as _re
-    _n = [0]
+    _n = [band_start]
     def _band(m):
         _n[0] += 1
         return '<section class="section ' + ('band-w' if _n[0] % 2 else 'band-m') + ' acc' + str(_n[0] % 3 + 1) + (' on-ink' if 'on-ink' in m.group(0) else '')
@@ -185,7 +185,7 @@ home = f'''
 <div class="photo" style="--rot:-2deg" data-reveal="right"><img src="assets/img/wedding.jpg" alt="A couple exchanging vows before a priest in a bright church" loading="lazy"></div></div></section>
 '''
 page('index.html', 'I love being Catholic — An invitation to parish adult formation', 'Five connected units. One welcoming invitation. A parish adult formation program from Liguori Publications.', home,
-     cta('Bring I Love Being Catholic to your parish', 'The five narratives, coordinated leader and participant guides, podcasts, and supporting materials are prepared and available for use.'))
+     cta('Bring I Love Being Catholic to your parish', 'The five narratives, coordinated leader and participant guides, podcasts, and supporting materials are prepared and available for use.'), band_start=-1)
 
 # ================= INVITATION =================
 kit = [('Five connected units', I_NET), ('A narrative guide', I_BOOK), ('A leader guide', I_COMPASS), ('A participant guide', I_PENCIL), ('Companion podcasts with transcripts', I_PHONES)]

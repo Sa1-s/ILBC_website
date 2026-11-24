@@ -1115,8 +1115,6 @@ a{color:var(--maroon-d)}
    side by side in the same maroon style */
 .hero .wrap{align-items:start;padding-bottom:clamp(24px,3vw,48px)}
 .stage{width:min(420px,78vw)}
-.marquee{background:var(--mint-5)}
-.marquee{border-block-color:#f0dfcc}
 
 .to-top{background:var(--maroon);color:#fff;border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-b),0 10px 22px rgba(122,10,32,.25);bottom:calc(16px + env(safe-area-inset-bottom,0px));right:calc(66px + env(safe-area-inset-right,0px))}
 @media(hover:hover){.to-top:hover{background:#7a0d26}}
@@ -1124,3 +1122,11 @@ a{color:var(--maroon-d)}
 
 /* Round 15: lift to-top/to-next above the "Your journey" pill so they don't overlap it */
 .to-top,.to-next,.to-next:nth-child(n){bottom:calc(70px + env(safe-area-inset-bottom,0px))}
+
+/* Round 16: page-hero photo fade on both edges (was only fading out on the right,
+   leaving that side of the photo fully exposed), and center the "Explore" heading
+   in the mobile footer's two-column link list */
+.page-hero::before{background:linear-gradient(90deg,rgba(252,245,230,.88) 0%,rgba(252,245,230,.55) 22%,rgba(252,245,230,.08) 48%,rgba(252,245,230,.55) 78%,rgba(252,245,230,.88) 100%)}
+@media(max-width:700px){.page-hero::before{background:linear-gradient(180deg,rgba(252,245,230,.88) 0%,rgba(252,245,230,.5) 30%,rgba(252,245,230,.12) 55%,rgba(252,245,230,.6) 80%,rgba(252,245,230,.88) 100%)}}
+
+@media(max-width:620px){.foot-grid>div:nth-child(2) h4{text-align:center}}
