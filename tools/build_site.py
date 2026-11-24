@@ -17,6 +17,7 @@ I_BOOK = svg('<path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v15H6a2 2 0 0 0-2 2zM4 20v1.
 I_COMPASS = svg('<circle cx="12" cy="12" r="9"/><path d="M15.8 8.2l-2 5.6-5.6 2 2-5.6z"/>')
 I_PENCIL = svg('<path d="M4 20h4.2L19.5 8.7a2 2 0 0 0 0-2.8l-1.4-1.4a2 2 0 0 0-2.8 0L4 15.8zM13.5 6.3l4.2 4.2"/>')
 I_PHONES = svg('<path d="M4 15v-3a8 8 0 0 1 16 0v3"/><path d="M4 15h3.2v5H5.5A1.5 1.5 0 0 1 4 18.5zM20 15h-3.2v5h1.7a1.5 1.5 0 0 0 1.5-1.5z"/>')
+I_NET = svg('<circle cx="12" cy="4" r="2"/><circle cx="20" cy="10" r="2"/><circle cx="17" cy="19.5" r="2"/><circle cx="7" cy="19.5" r="2"/><circle cx="4" cy="10" r="2"/><path d="M13.7 5.2l4.6 3.6M19.4 11.9l-1.7 5.7M15 19.5h-6M6.3 17.6L4.6 11.9M5.7 8.8l4.6-3.6M12 6v4.2M12 10.2l6 .1M12 10.2L6 10.2M12 10.2l4 7.6M12 10.2l-4 7.6"/>')
 I_PIN = svg('<path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>')
 I_PHONE = svg('<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/>')
 I_MAIL = svg('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 7.5l8.5 6 8.5-6"/>')
@@ -59,7 +60,7 @@ def footer():
 </div>
 <div class="foot-bar"><div class="wrap">
 <div class="fb-left"><span class="copy">&copy; I Love Being Catholic</span><button type="button" class="cookie-manage">Manage cookies</button><button type="button" class="ed-lock" aria-label="Site editor sign in" title="Site editor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></button></div>
-<a class="credit" href="https://sixjarsglobal.com" target="_blank" rel="noopener"><span>Created by</span><img src="assets/img/sixjars-color.png" alt="Six Jars Global" width="837" height="267"></a>
+<div class="credit"><span>Developed by</span><img src="assets/img/sixjars-color.png" alt="Six Jars Global" width="837" height="267"></div>
 </div></div></footer>
 <div class="cookie" id="cookie" role="dialog" aria-labelledby="ck-t" aria-live="polite" hidden>
 <div><b id="ck-t">Cookies and storage</b><p>This site uses only essential browser storage to remember your progress, checklists and cookie choice. It does not use advertising or tracking cookies.</p></div>
@@ -137,7 +138,7 @@ home = f'''
 <div class="btns hero-line" style="--i:5"><a class="btn" href="units.html">Explore the five units{ARROW}</a><a class="btn light" href="settings.html">Choose a setting</a></div></div>
 <div class="stage hero-line" style="--i:3"><div class="orbit"></div><div class="orbit-wrap">{orbit}</div>
 <div class="seal"><img src="assets/img/seal-512.png" alt="I Love Being Catholic seal: a golden cross with rays on a green field" width="300" height="300"></div>
-<div class="float-photo p1"><img src="assets/img/prayer.jpg" alt="" loading="lazy"></div><div class="float-photo p2"><img src="assets/img/scripture.jpg" alt="" loading="lazy"></div></div>
+</div>
 </div></section>
 
 <div class="marquee" aria-label="I love being Catholic because of the Magisterium, the Catechism, Sacred Scripture, the Sacraments, the Smells and Bells"><div class="track">{ticker}</div></div>
@@ -153,7 +154,7 @@ home = f'''
 <p data-reveal>A familiar gesture, a passage heard at Mass, or a question about Church teaching can open the door to a fuller understanding of Catholic faith. I Love Being Catholic begins with those recognizable experiences and helps participants follow the connections among belief, worship, prayer, and daily choices.</p>
 <p data-reveal>No prior course of study is assumed. Longtime parishioners and adults seeking a fresh understanding are invited to bring their questions, with room for honest reflection.</p>
 <a class="link-arrow" data-reveal href="invitation.html">Read the invitation {ARROW}</a></div>
-<div class="photo" style="--rot:2deg" data-reveal="right"><img src="assets/img/discussion.jpg" alt="Parishioners of different ages talking together around a table with Bibles and notebooks" loading="lazy"><span class="tag sticker fill">Learning together</span></div>
+<div class="photo" style="--rot:2deg" data-reveal="right"><img src="assets/img/discussion.jpg" alt="Parishioners of different ages talking together around a table with Bibles and notebooks" loading="lazy"></div>
 </div></section>
 
 <section class="section s1"><div class="wrap">
@@ -192,7 +193,7 @@ page('index.html', 'I love being Catholic — An invitation to parish adult form
      cta('Bring I Love Being Catholic to your parish', 'The five narratives, coordinated leader and participant guides, podcasts, and supporting materials are prepared and available for use.'))
 
 # ================= INVITATION =================
-kit = [('Five connected units', I_COMPASS), ('A narrative guide', I_BOOK), ('A leader guide', I_COMPASS), ('A participant guide', I_PENCIL), ('Companion podcasts with transcripts', I_PHONES)]
+kit = [('Five connected units', I_NET), ('A narrative guide', I_BOOK), ('A leader guide', I_COMPASS), ('A participant guide', I_PENCIL), ('Companion podcasts with transcripts', I_PHONES)]
 aims = ['Connect belief with worship and daily life', 'Find reliable sources for further learning', 'Understand more clearly the meaning of Catholic practices']
 inv = f'''{phero('The invitation', 'The invitation', 'Why bring this experience to your parish, and who it is for.', 'discussion.jpg')}
 <section class="section s5"><div class="wrap split">
@@ -200,21 +201,21 @@ inv = f'''{phero('The invitation', 'The invitation', 'Why bring this experience 
 <p class="lead" data-reveal>A familiar gesture, a passage heard at Mass, or a question about Church teaching can open the door to a fuller understanding of Catholic faith.</p>
 <p data-reveal>I Love Being Catholic begins with those recognizable experiences and helps participants follow the connections among belief, worship, prayer, and daily choices.</p>
 <p data-reveal>Adult formation is an essential part of parish life, not simply an occasional course. I Love Being Catholic offers a shared framework for that continuing work. Its units return to central questions rather than treating doctrine, Scripture, and Catholic practices as unrelated subjects. The companion materials give local leaders a common foundation for teaching and conversation.</p></div>
-<div class="photo" style="--rot:2deg" data-reveal="right"><img src="assets/img/congregation.jpg" alt="A diverse congregation standing in the pews of a church at Mass" loading="lazy"><span class="tag sticker fill">Adult formation as parish life</span></div></div></section>
+<div class="photo" style="--rot:2deg" data-reveal="right"><img src="assets/img/congregation.jpg" alt="A diverse congregation standing in the pews of a church at Mass" loading="lazy"></div></div></section>
 
 <section class="section s3"><div class="wrap split rev">
-<div class="photo" style="--rot:-2deg" data-reveal="left"><img src="assets/img/priest.jpg" alt="A priest in conversation with parishioners in a garden outside the church" loading="lazy"><span class="tag sticker fill">Questions are welcome</span></div>
+<div class="photo" style="--rot:-2deg" data-reveal="left"><img src="assets/img/priest.jpg" alt="A priest in conversation with parishioners in a garden outside the church" loading="lazy"></div>
 <div>{head('A welcome', 'A welcome for adults with questions')}
 <p data-reveal>The program welcomes adults with varied levels of familiarity with Catholic faith. No prior course of study is assumed. Longtime parishioners and adults seeking a fresh understanding are invited to bring their questions, including questions shaped by difficult experiences of Church life.</p>
 <div class="callout" data-reveal><b>What “love” means here</b>“Love” expresses an invitation to informed belonging, with room for honest reflection.</div></div></div></section>
 
 <section class="section s1"><div class="wrap">
 {head('Learning aims', 'The learning aims are practical', 'Prayer and guided conversation help participants consider how what they learn takes shape beyond the gathering.', center=True)}
-<div class="grid g3">{''.join(f'<article class="card" data-reveal style="--d:{i*.1:.1f}s"><span class="sticker gold" style="--rot:-3deg">0{i+1}</span><h3 style="margin-top:18px">{t}</h3></article>' for i,t in enumerate(aims))}</div></div></section>
+<div class="grid g3 aims-flow">{''.join(f'<article class="card" data-reveal style="--d:{i*.1:.1f}s"><span class="step-no">Step {i+1}</span><h3 style="margin-top:18px">{t}</h3></article>' for i,t in enumerate(aims))}</div></div></section>
 
 <section class="section on-ink"><div class="wrap">
 {head('Ready for your parish', 'Ready for your parish to use', 'The complete program brings together everything below. Your parish can choose the setting that best serves its people and begin with materials prepared for that purpose.')}
-<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">{''.join(f'<div class="card" data-reveal style="--d:{i*.08:.2f}s;background:var(--paper);border-color:var(--ink);box-shadow:0 6px 0 var(--ink)"><div style="width:52px;height:52px;border-radius:16px;background:var(--mint-1);border:2px solid var(--ink);color:var(--ink);display:grid;place-items:center;margin-bottom:14px"><span style="width:28px;height:28px;display:block">{ic}</span></div><h3 style="font-size:1.1rem;margin:0">{t}</h3></div>' for i,(t,ic) in enumerate(kit))}</div>
+<div class="kitrow">{''.join(f'<a class="kit" data-reveal style="--d:{i*.08:.2f}s" href="{h}"><span class="kit-ic">{ic}</span><span class="kit-t">{t}</span></a>' for i,((t,ic),h) in enumerate(zip(kit,['units.html','resources.html','resources.html','resources.html','resources.html'])))}</div>
 <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:36px" data-reveal><a class="btn gold" href="settings.html">Choose a setting{ARROW}</a><a class="btn light" href="resources.html">See the resources</a></div></div></section>
 '''
 page('invitation.html', 'The invitation — I love being Catholic', 'Why bring I Love Being Catholic to your parish: a welcome for adults with questions, and a program ready for your parish to use.', inv)
@@ -304,7 +305,7 @@ steps = [('1', '', 'The five-week introduction', 'Five connected units that welc
          ('∞', 'ready', 'A continuing pathway', 'A parish can begin with the five-week introduction and then choose the twelve-week studies that best serve its people.')]
 path = '<div class="path"><div class="path-line" aria-hidden="true"><i></i></div>' + ''.join(f'<div class="pstep" data-reveal><div class="pin {c}">{n}</div><div><h3>{t}</h3><p>{d}</p></div></div>' for n, c, t, d in steps) + '</div>'
 studies = [('The Catechism of the Catholic Church', ''), ('The Second Vatican Council', ''), ('Sacred Scripture', 'dev'), ('The Sacraments', 'dev'), ('The Smells and Bells of Catholicism', 'dev')]
-sh = ''.join(f'<div class="study {d}" data-reveal style="--d:{i*.08:.2f}s"><div class="w">12<small>weeks</small></div><h4>{t}</h4><span class="sticker {"gold" if not d else ""}">{"Ready for use" if not d else "Ready by Oct 1, 2027"}</span></div>' for i, (t, d) in enumerate(studies))
+sh = ''.join(f'<div class="study {d}" data-reveal style="--d:{i*.08:.2f}s"><div class="w">12<small>weeks</small></div><h4>{t}</h4><span class="sticker {"gold" if not d else ""}">{"Ready for use" if not d else "Available from Oct 1, 2027"}</span></div>' for i, (t, d) in enumerate(studies))
 beginning = f'''{phero('A beginning, not an ending', 'A beginning, not an ending', 'An ongoing journey of discovery, conversation, and growth in faith.', 'wedding.jpg')}
 <section class="section s5" style="padding-bottom:30px"><div class="wrap" style="max-width:900px"><div class="callout" data-reveal style="text-align:center;margin:0"><span style="font:italic 600 clamp(1.25rem,2.6vw,1.75rem)/1.45 var(--serif)">I Love Being Catholic is more than a five-week experience. It is <b>an invitation to begin an ongoing journey</b> of discovery, conversation, and growth in faith.</span></div></div></section>
 <section class="section s4"><div class="wrap split" style="align-items:start">

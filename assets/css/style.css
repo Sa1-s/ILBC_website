@@ -934,3 +934,91 @@ a{color:var(--maroon-d)}
 .foot-contact li,.foot-contact a{min-height:0!important}
 .foot-contact li{margin-bottom:5px;padding:0;align-items:flex-start}
 .cta img.s{width:64px;height:64px;object-fit:contain}
+
+/* ===== Round 6 ===== */
+/* 1 journey stops are links */
+.jpanel li{padding:0}
+.jpanel li a{display:flex;align-items:center;gap:10px;width:100%;padding:6px 8px;border-radius:10px;color:inherit;text-decoration:none}
+@media(hover:hover){.jpanel li a:hover{background:#fbeee9}.jpanel li a:hover span{color:var(--maroon)}}
+.jpanel li a:focus-visible{outline:2px solid var(--maroon);outline-offset:1px}
+/* 2 credit: plain text, bigger */
+.credit{cursor:default;font-size:.86rem;padding:4px 16px 4px 16px;gap:10px}
+.credit img{height:44px}
+/* 3 + 10 kit: connected medallions */
+.kitrow{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:10px}
+.kitrow::before{content:"";position:absolute;left:10%;right:10%;top:44px;height:2px;background:repeating-linear-gradient(90deg,var(--gold-b) 0 8px,transparent 8px 14px);z-index:0}
+.kit{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px;text-decoration:none;color:var(--ink);padding:0 4px}
+.kit-ic{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#c0223f,var(--maroon) 60%,#7a0a20);color:#fff;border:4px solid #fff;box-shadow:0 0 0 2px var(--gold-b),0 12px 24px rgba(122,10,32,.22);transition:transform .35s var(--bounce),box-shadow .3s}
+.kit-ic svg{width:40px;height:40px}
+.kit-t{font:600 1.08rem/1.25 var(--serif);max-width:15ch}
+@media(hover:hover){.kit:hover .kit-ic{transform:translateY(-6px) rotate(-6deg);box-shadow:0 0 0 2px var(--gold-b),0 18px 30px rgba(122,10,32,.3)}.kit:hover .kit-t{color:var(--maroon)}}
+@media(max-width:760px){
+  .kitrow{grid-template-columns:1fr;gap:14px}
+  .kitrow::before{left:35px;right:auto;top:20px;bottom:20px;width:2px;height:auto;background:repeating-linear-gradient(180deg,var(--gold-b) 0 8px,transparent 8px 14px)}
+  .kit{flex-direction:row;text-align:left;gap:16px}.kit-ic{width:70px;height:70px;flex:none}.kit-ic svg{width:32px;height:32px}.kit-t{max-width:none}
+}
+/* 5 marquee: phrase reads as one line, and it keeps moving on phones */
+.marquee span{gap:.4em;padding:0 0 0 1.6em}
+.marquee span::after{margin-left:1.2em}
+@media (prefers-reduced-motion:reduce){.marquee .track{animation:marq 90s linear infinite!important;animation-duration:90s!important;animation-iteration-count:infinite!important}}
+.marquee.paused .track{animation-play-state:paused!important}
+/* 6 units: all five in one view on wider screens */
+@media(min-width:1000px){
+  .scroller{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;overflow:visible;padding:8px 0 10px}
+  .scroller .ucard{flex:none;min-height:0;padding:24px 18px 20px;gap:10px}
+  .scroller .ucard:nth-child(odd){border-radius:40px 10px 40px 10px}.scroller .ucard:nth-child(even){border-radius:10px 40px 10px 40px}
+  .scroller .ucard h3{font-size:1.12rem;line-height:1.2}.scroller .ucard p{font-size:.86rem;line-height:1.5}
+  .scroller .ucard .more{margin-top:auto}
+}
+@media(min-width:620px) and (max-width:999px){.scroller{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible}.scroller .ucard{flex:none}}
+/* 7 arches: window, not headstone */
+.arches{padding-top:34px}
+.arches .card{position:relative;overflow:visible;border:2px solid #e8cfc4;background:linear-gradient(180deg,#fdf1ee 0%,#fff 46%);padding:62px 30px 30px;border-radius:999px 999px 34px 34px}
+.arches .card::before{content:"";position:absolute;inset:9px;border:1.5px solid rgba(212,167,63,.7);border-radius:inherit;pointer-events:none}
+.arches .card .ic{position:absolute;top:-30px;left:50%;transform:translateX(-50%);width:64px;height:64px;border:4px solid #fff;box-shadow:0 0 0 2px var(--gold-b),0 10px 20px rgba(122,10,32,.2);margin:0}
+.arches .card .sticker{margin-top:10px}
+/* 8 honeycomb: brighter */
+.honey .row.a .hexwrap:nth-child(1) .hex,.honey .row.a .hexwrap:nth-child(1) .hex:nth-child(n){background:var(--maroon)}
+.honey .row.a .hexwrap:nth-child(2) .hex{background:#e2b23e}
+.honey .row.b .hexwrap:nth-child(1) .hex{background:#de2f45}
+.honey .row.b .hexwrap:nth-child(2) .hex{background:#7a0d26}
+.honey .hexwrap .hex h3{color:#fff}.honey .hexwrap .hex p{color:#fbe9e3}
+.honey .row.a .hexwrap:nth-child(2) .hex h3{color:#3a0613}.honey .row.a .hexwrap:nth-child(2) .hex p{color:#4b1a20}
+.honey .hex .ic{background:#fff!important;color:var(--maroon);border-color:rgba(255,255,255,.6)}
+@media(hover:hover){.honey .hexwrap:hover .hex{filter:brightness(1.08)}}
+/* 9 aims: connected steps */
+.aims-flow{position:relative;gap:48px}
+.aims-flow::before{content:"";position:absolute;left:8%;right:8%;top:50%;height:3px;background:linear-gradient(90deg,var(--maroon),var(--gold-b),var(--maroon));z-index:0}
+.aims-flow .card{position:relative;z-index:1}
+.aims-flow .card:not(:last-child)::after{content:"→";position:absolute;right:-41px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:var(--maroon);color:#fff;display:grid;place-items:center;font:700 1.05rem/1 var(--sans);border:3px solid #fff;box-shadow:0 0 0 2px var(--gold-b)}
+.step-no{display:inline-flex;align-items:center;font:700 .75rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--maroon);border-radius:99px;padding:7px 12px}
+@media(max-width:860px){
+  .aims-flow{grid-template-columns:1fr;gap:44px}
+  .aims-flow::before{left:50%;right:auto;top:6%;bottom:6%;width:3px;height:auto;background:linear-gradient(180deg,var(--maroon),var(--gold-b),var(--maroon))}
+  .aims-flow .card:not(:last-child)::after{content:"↓";right:auto;left:50%;top:auto;bottom:-40px;transform:translateX(-50%)}
+}
+/* 11 studies: even cards, clear status */
+.studies{grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch}
+.study{display:flex;flex-direction:column;align-items:flex-start;padding:22px 16px 18px}
+.study h4{flex:1}
+.study .sticker{white-space:normal;line-height:1.3;font-size:.74rem;text-align:left}
+.study.dev::after{content:"Coming soon";position:static;order:-1;margin:0 0 10px;align-self:flex-start;background:var(--maroon);color:#fff;font-size:.6rem}
+.study.dev{padding-top:16px}
+@media(max-width:1000px){.studies{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.studies{grid-template-columns:1fr}}
+/* 4 + 12 orbit: no photos; no clashing half circle on phones */
+.float-photo{display:none!important}
+@media(max-width:860px){.hero .blob{display:none}}
+/* 8 honeycomb fill (the colour lives on the inner layer) */
+.honey .hexwrap .hex,.honey .hexwrap .hex:nth-child(n){background:#f3d27a}
+.honey .row.a .hexwrap:nth-child(1) .hex::before{background:linear-gradient(160deg,#c0223f,var(--maroon))}
+.honey .row.a .hexwrap:nth-child(2) .hex::before{background:linear-gradient(160deg,#f2c75a,#dba530)}
+.honey .row.b .hexwrap:nth-child(1) .hex::before{background:linear-gradient(160deg,#ef4b5f,#d4243b)}
+.honey .row.b .hexwrap:nth-child(2) .hex::before{background:linear-gradient(160deg,#8f1530,#5e0a1d)}
+.honey .row.a .hexwrap:nth-child(2) .hex{background:#fff3d6}
+/* 3 kit labels: no underline */
+.kit,.kit:hover{text-decoration:none}
+/* 11 every study card gets a status tag so they line up */
+.study:not(.dev)::after{content:"Available now";order:-1;margin:0 0 10px;align-self:flex-start;font:700 .6rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;background:var(--gold-b);color:#3a0613;padding:6px 9px;border-radius:99px}
+.study.dev::after{padding:6px 9px;border-radius:99px;letter-spacing:.12em}
+.study{padding-top:16px}

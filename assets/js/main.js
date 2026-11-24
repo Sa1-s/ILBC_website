@@ -14,13 +14,13 @@
 
   /* ---------- journey quests ---------- */
   var QUESTS = [
-    ['hello', 'Say hello on the home page', function () { return state.pages.index; }],
-    ['invite', 'Read the invitation', function () { return state.pages.invitation; }],
-    ['units', 'Explore all five units', function () { return state.units.length >= 5; }],
-    ['setting', 'Pick a setting for your parish', function () { return state.setting; }],
-    ['resources', 'See the resources', function () { return state.pages.resources; }],
-    ['pathway', 'Follow the pathway', function () { return state.pages.beginning; }],
-    ['start', 'Plan your next step', function () { return state.pages['get-started']; }]
+    ['hello', 'Say hello on the home page', function () { return state.pages.index; }, 'index.html'],
+    ['invite', 'Read the invitation', function () { return state.pages.invitation; }, 'invitation.html'],
+    ['units', 'Explore all five units', function () { return state.units.length >= 5; }, 'units.html'],
+    ['setting', 'Pick a setting for your parish', function () { return state.setting; }, 'settings.html'],
+    ['resources', 'See the resources', function () { return state.pages.resources; }, 'resources.html'],
+    ['pathway', 'Follow the pathway', function () { return state.pages.beginning; }, 'beginning.html'],
+    ['start', 'Plan your next step', function () { return state.pages['get-started']; }, 'get-started.html']
   ];
   var jbtn, jpanel, ring, toastEl;
   function buildJourney() {
@@ -34,6 +34,7 @@
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { jpanel.classList.remove('open'); jbtn.setAttribute('aria-expanded', 'false'); } });
     document.addEventListener('click', function (e) { if (!jpanel.contains(e.target) && !jbtn.contains(e.target)) { jpanel.classList.remove('open'); jbtn.setAttribute('aria-expanded', 'false'); } });
     jpanel.addEventListener('click', function (e) {
+      if (e.target.closest('a')) { jpanel.classList.remove('open'); jbtn.setAttribute('aria-expanded', 'false'); }
       if (e.target.closest('.reset')) { state = { pages: {}, units: [], setting: false, checks: {}, done: false }; save(state); markPage(); renderJourney(); refreshPageUI(); }
     });
   }
@@ -60,7 +61,7 @@
     var done = QUESTS.filter(function (q) { return q[2](); }).length, pct = Math.round(done / QUESTS.length * 100);
     ring.style.setProperty('--p', pct); ring.setAttribute('data-t', done + '/' + QUESTS.length);
     jpanel.innerHTML = '<h4>Your journey</h4><p>' + (done === QUESTS.length ? 'You have seen it all. Your parish is ready to begin.' : 'Explore the site, one stop at a time. Progress stays on this device only.') + '</p><ol>' +
-      QUESTS.map(function (q, i) { var d = q[2](); return '<li class="' + (d ? 'done' : '') + '"><i>' + (d ? '✓' : i + 1) + '</i><span>' + q[1] + '</span></li>'; }).join('') +
+      QUESTS.map(function (q, i) { var d = q[2](); return '<li class="' + (d ? 'done' : '') + '"><a href="' + q[3] + '"><i>' + (d ? '✓' : i + 1) + '</i><span>' + q[1] + '</span></a></li>'; }).join('') +
       '</ol>' + (done === QUESTS.length ? '<a class="btn small" href="get-started.html#contact">Contact Liguori</a> ' : '') + '<button class="reset" type="button">Start over</button>';
     if (done === QUESTS.length && !state.done) { state.done = true; save(state); confetti(); toast('Journey complete — you are ready to bring this to your parish.'); }
     if (done < QUESTS.length && state.done) { state.done = false; save(state); }
@@ -224,4 +225,6 @@
     box.addEventListener('click', function (e) { var b = e.target.closest('[data-ck]'); if (!b) return; set(b.getAttribute('data-ck')); hide(); });
     document.addEventListener('click', function (e) { if (e.target.closest('.cookie-manage')) show(); });
   })();
+  /* tap the ticker to pause or resume it */
+  document.addEventListener('click', function (e) { var m = e.target.closest && e.target.closest('.marquee'); if (m) m.classList.toggle('paused'); });
 })();
