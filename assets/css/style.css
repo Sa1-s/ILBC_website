@@ -1149,3 +1149,15 @@ a{color:var(--maroon-d)}
    blur on the active nav pill (it's solid now, the blur was just smudging the pattern behind it) */
 .to-next,.to-next:nth-child(n){border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-b),0 10px 22px rgba(122,10,32,.25)}
 .nav a[aria-current="page"],.nav a.cta[aria-current="page"]{-webkit-backdrop-filter:none;backdrop-filter:none}
+
+/* Round 20: tighten the gap above the hero content (was up to 96px of empty padding
+   before the eyebrow pill even started), and drop the active-nav pill's solid
+   background entirely — text color alone now marks the current page */
+.hero .wrap{padding-top:clamp(16px,2vw,32px)}
+
+.nav a[aria-current="page"],.nav a.cta[aria-current="page"]{background:none;border-color:transparent;box-shadow:none;color:var(--gold-b)}
+@media(max-width:860px){.nav a[aria-current="page"]{background:none;border-color:transparent;color:var(--gold-b);text-decoration:underline;text-underline-offset:4px}}
+
+/* Round 21: the mobile drawer's active-page text was maroon-on-maroon (same color as
+   the drawer background) and unreadable; match the desktop gold so it's visible against
+   the maroon drawer */
