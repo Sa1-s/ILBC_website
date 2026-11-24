@@ -18,12 +18,12 @@ A multi-page, animated website for the **I Love Being Catholic** adult-formation
 
 ## Features
 
-- Pastel mint theme built from the supplied palette, with the original seal and Liguori logos kept in their own colours.
+- Colour theme based on the Liguori Publications brand guidelines: maroon (#a20e2b), black and white, with cream and gold taken from the I Love Being Catholic seal. The seal and Liguori logos are kept in their own colours.
 - Moves between pages without a browser reload (a small client-side router in `assets/js/main.js`), with back/forward and hash links supported.
 - Animations: scroll reveals, count-up numbers, a drawn cross with a rotating ring, parallax banners. All respect `prefers-reduced-motion`.
 - A light "Your journey" tracker with seven quests, saved only on the visitor's device (no accounts, no tracking).
 - Responsive from 320px phones to desktop, with iPhone safe-area support, touch-friendly tap targets and a Windows high-contrast fallback.
-- Self-hosted fonts (Noto Serif and Noto Sans), so no requests go to third-party servers.
+- Self-hosted fonts: Crimson Pro for headings (a close match to the brand's Minion Pro) and Montserrat for body text and interface, as the guidelines specify for web. No requests go to third-party servers.
 
 ## Run it locally
 
