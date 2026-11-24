@@ -843,3 +843,60 @@ a{color:var(--maroon-d)}
   .stage{width:min(340px,78vw);margin:26px auto 34px}
 }
 @media(max-width:420px){.foot-bar .wrap{padding-bottom:calc(86px + env(safe-area-inset-bottom,0px))}}
+
+/* ===== Round 4: alignment, quieter palette, compact footer, textured header ===== */
+/* arches: one level, equal height */
+.arches{align-items:stretch}
+.arches .card,.arches .card:nth-child(2){margin-top:0}
+.arches .card{min-height:340px}
+.arches>*:nth-child(n) .ic{background:var(--maroon);color:#fff}
+/* units: one refined tone instead of a rainbow */
+.ucard:nth-child(n) .n{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.step-btn:nth-child(n){background:#fff;color:var(--ink);border-color:var(--edge-soft)}
+.step-btn:nth-child(n) .n{background:var(--cream);color:var(--maroon);border:2px solid #ead3c8}
+.step-btn.done:nth-child(n) .n{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.step-btn[aria-selected="true"],.step-btn.on{background:#fbeee9;border-color:var(--maroon);outline:0;box-shadow:0 6px 16px rgba(162,14,43,.14)}
+.step-btn[aria-selected="true"] .n{background:var(--maroon);color:#fff;border-color:var(--maroon)}
+.step-btn.done .n::after{background:var(--gold-b);color:#4b0818;border-color:#fff}
+/* unit-explored note: small, to the side, never over the text */
+.toast{left:auto;right:16px;bottom:calc(150px + env(safe-area-inset-bottom,0px));transform:translateX(24px);padding:9px 16px;font-size:.92rem;border-radius:14px;text-align:left;max-width:min(260px,calc(100vw - 32px));box-shadow:0 8px 20px rgba(75,8,24,.18)}
+.toast.show{transform:translateX(0)}
+/* compact call-to-action band */
+.cta{padding:clamp(34px,4.5vw,52px) 0}
+.cta img.s{width:64px;margin-bottom:12px;border-width:2px}
+.cta h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:.35em}
+.cta p{margin-bottom:1.1em}
+.cta::before{width:min(300px,80%);background:repeating-conic-gradient(rgba(162,14,43,.05) 0 2deg,transparent 2deg 14deg)}
+/* header shares the footer texture */
+.header .bar,.nav{background:linear-gradient(180deg,#7a0d26,#5e0a1d)}
+.header .bar{position:relative;overflow:hidden;isolation:isolate}
+.header .bar::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:repeating-linear-gradient(115deg,rgba(252,245,230,.07) 0 2px,transparent 2px 26px),repeating-linear-gradient(25deg,rgba(252,245,230,.04) 0 2px,transparent 2px 34px)}
+/* footer: smaller */
+.foot-grid{padding:clamp(30px,4vw,42px) 0 22px;gap:clamp(20px,3vw,40px)}
+.foot h4{font-size:1.15rem;margin-bottom:10px}
+.foot .fb img{width:48px;height:48px}.foot .fb b{font-size:1.15rem}
+.foot-brand p{font-size:.88rem;margin-bottom:12px}
+.foot-ico a{width:36px;height:36px}
+.foot-list{gap:0}.foot-list a{font-size:.92rem;padding:4px 0}
+.foot-contact li{font-size:.9rem;margin-bottom:8px}
+.foot .lg{width:150px}
+.foot-bar .wrap{padding-top:12px;padding-bottom:70px;font-size:.85rem}
+.credit{padding:5px 14px;gap:10px;font-size:.82rem}
+.credit img{height:30px;width:auto;filter:drop-shadow(0 0 5px rgba(252,240,222,.5))}
+.cookie-manage{font-size:.82rem;padding:6px 14px}
+@media(max-width:620px){.toast{right:12px;bottom:calc(142px + env(safe-area-inset-bottom,0px))}.foot-bar .wrap{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
+.foot-list a{min-height:34px}@media(pointer:coarse){.foot-list a{min-height:40px}}
+/* quieter badges and dots */
+.badge{background:var(--cream);color:var(--maroon);border:2px dashed #cf9aa4}
+.badge.on{background:var(--maroon);color:#fff;border:2px solid var(--maroon);transform:scale(1.06) rotate(-6deg);box-shadow:0 6px 14px rgba(162,14,43,.22)}
+.dot i,.dot i:nth-child(n){background:var(--cream);color:var(--maroon);border:2px solid #e3c3bb}
+.progress i,.progress span,.meter i,.meter span{background:linear-gradient(90deg,var(--maroon),#c4455c)}
+/* unit note sits beside the Journey pill */
+.toast{right:172px;bottom:calc(18px + env(safe-area-inset-bottom,0px));transform:translateX(16px)}
+.toast.show{transform:translateX(0)}
+@media(max-width:620px){.toast{right:96px;bottom:calc(22px + env(safe-area-inset-bottom,0px));max-width:calc(100vw - 112px)}}
+/* credit: bigger, lit pill so the colours read */
+.credit{background:rgba(252,245,230,.14);border-color:rgba(212,167,63,.55)}
+.credit img{height:42px;filter:drop-shadow(0 0 4px rgba(252,240,222,.65))}
+.foot-contact{gap:0}.foot-contact li{margin-bottom:6px}
+.bar-meter i{background:linear-gradient(90deg,var(--maroon),#c4455c)!important}.bar-meter{border-color:#cf9aa4}

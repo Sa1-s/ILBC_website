@@ -58,8 +58,8 @@ def footer():
 <li>{I_GLOBE}<a href="https://www.liguori.org" target="_blank" rel="noopener">liguori.org</a></li></ul></div>
 </div>
 <div class="foot-bar"><div class="wrap">
-<span class="copy">&copy; 2026 I Love Being Catholic</span>
-<a class="credit" href="https://sixjarsglobal.com" target="_blank" rel="noopener"><span>Created with {I_HEART} by</span><img src="assets/img/sixjars-cream.png" alt="Six Jars Global" width="838" height="269"></a>
+<span class="copy">&copy; I Love Being Catholic</span>
+<a class="credit" href="https://sixjarsglobal.com" target="_blank" rel="noopener"><span>Created by</span><img src="assets/img/sixjars-color.png" alt="Six Jars Global" width="837" height="267"></a>
 <button type="button" class="cookie-manage">Manage cookies</button>
 </div></div></footer>
 <div class="cookie" id="cookie" role="dialog" aria-labelledby="ck-t" aria-live="polite" hidden>
