@@ -36,15 +36,35 @@ def header(cur):
 <nav class="nav" id="nav" aria-label="Main"><ul>{items}<li><a class="cta" href="get-started.html"{AC if cur == 'get-started.html' else ''}>Get started</a></li></ul></nav>
 </div></header>'''
 
+I_MAIL = svg('<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7 8.5 6.5L20.5 7"/>')
+I_PHONE = svg('<path d="M5 3.5h3.5l1.8 4.5-2.2 1.4a11 11 0 0 0 5.5 5.5l1.4-2.2 4.5 1.8V18a2 2 0 0 1-2 2A15 15 0 0 1 3 5.5a2 2 0 0 1 2-2z"/>')
+I_GLOBE = svg('<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9S14.6 18.4 12 21c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/>')
+I_PIN = svg('<path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>')
+I_HEART = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-8-5.2-8-11a4.6 4.6 0 0 1 8-3 4.6 4.6 0 0 1 8 3c0 5.800-8 11-8 11z"/></svg>'
+
 def footer():
     links = ''.join(f'<li><a href="{h}">{t}</a></li>' for h, t in NAV + [('get-started.html', 'Get started')])
-    return f'''<footer class="footer"><div class="wrap">
-<div><div class="fb"><img src="assets/img/seal-512.png" alt="" width="72" height="72"><b>{SITE}</b></div>
-<p>Five connected units. One welcoming invitation.</p></div>
-<div><h4>Explore</h4><ul>{links}</ul></div>
-<div><h4>Contact</h4><img class="lg" src="assets/img/liguori-logo.png" alt="Liguori Publications — A Redemptorist Ministry" width="200" height="94">
-<address>200 Liguori Drive<br>Liguori, MO 63057<br><a href="tel:+18003259521">800-325-9521</a><br><a href="mailto:liguori@liguori.org">liguori@liguori.org</a><br><a href="https://www.liguori.org" target="_blank" rel="noopener">liguori.org</a></address></div>
-</div><div class="legal">Created by Six Jars Global</div></footer>
+    return f'''<footer class="foot"><div class="foot-glow" aria-hidden="true"></div>
+<div class="wrap foot-grid">
+<div class="foot-brand"><div class="fb"><img src="assets/img/seal-512.png" alt="" width="72" height="72"><b>{SITE}</b></div>
+<p>Five connected units. One welcoming invitation.</p>
+<div class="foot-ico"><a href="mailto:liguori@liguori.org" aria-label="Email Liguori Publications">{I_MAIL}</a><a href="tel:+18003259521" aria-label="Call Liguori Publications">{I_PHONE}</a><a href="https://www.liguori.org" target="_blank" rel="noopener" aria-label="Visit liguori.org">{I_GLOBE}</a></div></div>
+<div><h4>Explore</h4><ul class="foot-list">{links}</ul></div>
+<div><h4>Publisher</h4><img class="lg" src="assets/img/liguori-logo.png" alt="Liguori Publications, A Redemptorist Ministry" width="200" height="94"></div>
+<div><h4>Contact</h4><ul class="foot-contact">
+<li>{I_PIN}<span>200 Liguori Drive<br>Liguori, MO 63057</span></li>
+<li>{I_PHONE}<a href="tel:+18003259521">800-325-9521</a></li>
+<li>{I_MAIL}<a href="mailto:liguori@liguori.org">liguori@liguori.org</a></li>
+<li>{I_GLOBE}<a href="https://www.liguori.org" target="_blank" rel="noopener">liguori.org</a></li></ul></div>
+</div>
+<div class="foot-bar"><div class="wrap">
+<span class="copy">&copy; 2026 I Love Being Catholic</span>
+<a class="credit" href="https://sixjarsglobal.com" target="_blank" rel="noopener"><span>Created with {I_HEART} by</span><img src="assets/img/sixjars-cream.png" alt="Six Jars Global" width="838" height="269"></a>
+<button type="button" class="cookie-manage">Manage cookies</button>
+</div></div></footer>
+<div class="cookie" id="cookie" role="dialog" aria-labelledby="ck-t" aria-live="polite" hidden>
+<div><b id="ck-t">Cookies and storage</b><p>This site uses only essential browser storage to remember your progress, checklists and cookie choice. It does not use advertising or tracking cookies.</p></div>
+<div class="ck-btns"><button type="button" class="btn small" data-ck="all">Accept</button><button type="button" class="btn light small" data-ck="essential">Essential only</button></div></div>
 <button class="to-top" aria-label="Back to top">{UP}</button>'''
 
 def cta(title='An invitation to begin', text='Bring together adults who want to understand their faith more fully, including those who are unsure where to begin. Choose a format that suits your community, invite people warmly, and make room for their questions.',

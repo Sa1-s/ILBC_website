@@ -205,4 +205,17 @@
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
   buildJourney(); var m0 = $('#main'); if (m0) m0.setAttribute('tabindex', '-1'); initPage();
+
+  // cookie notice: only essential storage is used; the choice is remembered
+  (function () {
+    var box = document.getElementById('cookie'); if (!box) return;
+    var KEY = 'ilbc-cookie';
+    function get() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+    function set(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+    function show() { box.hidden = false; requestAnimationFrame(function () { box.classList.add('on'); }); }
+    function hide() { box.classList.remove('on'); setTimeout(function () { box.hidden = true; }, 350); }
+    if (!get()) setTimeout(show, 900);
+    box.addEventListener('click', function (e) { var b = e.target.closest('[data-ck]'); if (!b) return; set(b.getAttribute('data-ck')); hide(); });
+    document.addEventListener('click', function (e) { if (e.target.closest('.cookie-manage')) show(); });
+  })();
 })();
