@@ -1161,3 +1161,9 @@ a{color:var(--maroon-d)}
 /* Round 21: the mobile drawer's active-page text was maroon-on-maroon (same color as
    the drawer background) and unreadable; match the desktop gold so it's visible against
    the maroon drawer */
+
+/* Round 22: shrink the Pathway pull-quote box — it was overly large/dominant */
+.pullquote{padding:clamp(22px,3.2vw,34px) clamp(20px,4vw,44px) clamp(20px,2.6vw,28px);border-radius:22px}
+.pq-mark{font-size:3rem;margin-bottom:6px}
+.pullquote blockquote{max-width:30ch;font-size:clamp(1rem,1.8vw,1.3rem)}
+.pq-rule{width:48px;height:2px;margin:14px auto 0}
