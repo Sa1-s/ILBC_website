@@ -37,7 +37,13 @@
       if (e.target.closest('.reset')) { state = { pages: {}, units: [], setting: false, checks: {}, done: false }; save(state); markPage(); renderJourney(); refreshPageUI(); }
     });
   }
-  function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(function () { toastEl.classList.remove('show'); }, 3200); }
+  function toast(msg) {
+    /* Announce for screen readers, and show the note inside the Journey pill so it never covers page text. */
+    toastEl.textContent = msg; var t = $('.t', jbtn);
+    if (!toast.orig) toast.orig = t.textContent;
+    t.textContent = msg.length > 34 ? 'Journey complete' : msg; jbtn.classList.add('flash');
+    clearTimeout(toast.t); toast.t = setTimeout(function () { t.textContent = toast.orig; jbtn.classList.remove('flash'); }, 3000);
+  }
   function confetti() {
     if (reduce) return;
     var cols = ['#a20e2b', '#d4a73f', '#efd0c6', '#f5e4cb', '#fcf5e6', '#241a1b'];

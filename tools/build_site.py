@@ -58,9 +58,8 @@ def footer():
 <li>{I_GLOBE}<a href="https://www.liguori.org" target="_blank" rel="noopener">liguori.org</a></li></ul></div>
 </div>
 <div class="foot-bar"><div class="wrap">
-<span class="copy">&copy; I Love Being Catholic</span>
+<div class="fb-left"><span class="copy">&copy; I Love Being Catholic</span><button type="button" class="cookie-manage">Manage cookies</button><button type="button" class="ed-lock" aria-label="Site editor sign in" title="Site editor"><svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></button></div>
 <a class="credit" href="https://sixjarsglobal.com" target="_blank" rel="noopener"><span>Created by</span><img src="assets/img/sixjars-color.png" alt="Six Jars Global" width="837" height="267"></a>
-<button type="button" class="cookie-manage">Manage cookies</button>
 </div></div></footer>
 <div class="cookie" id="cookie" role="dialog" aria-labelledby="ck-t" aria-live="polite" hidden>
 <div><b id="ck-t">Cookies and storage</b><p>This site uses only essential browser storage to remember your progress, checklists and cookie choice. It does not use advertising or tracking cookies.</p></div>
@@ -93,7 +92,8 @@ def page(fname, title, desc, body, cta_html=None):
 {cta_html if cta_html is not None else cta()}
 </main>
 {footer()}
-<script src="assets/js/main.js?v={V}"></script></body></html>'''
+<script src="assets/js/main.js?v={V}"></script>
+<script src="assets/js/admin.js?v={V}" defer></script></body></html>'''
     open(os.path.join(OUT, fname), 'w', encoding='utf-8').write(html)
 
 def phero(crumb, h1, sub, bg):
