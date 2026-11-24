@@ -1054,3 +1054,13 @@ a{color:var(--maroon-d)}
 .photo,.photo:nth-child(n),.sticker,.sticker:nth-child(n),.fmt-panel .sticker{--rot:0deg!important;rotate:0deg}
 .credit,.credit:nth-child(n){background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
 .credit img{filter:none}
+
+/* Round 9: remove stats strip (done in build2.py), icon-only Next arrow beside back-to-top everywhere, pink alternating bands */
+.to-next,.to-next:nth-child(n){width:42px;height:42px;padding:0;justify-content:center;gap:0;border-radius:50%;bottom:calc(116px + env(safe-area-inset-bottom,0px))}
+.to-next .nx-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.section.band-w{background:#fbe3e0}
+.on-ink.band-w{background:#fbe3e0}
+.band-w+.cta{background:#fbe3e0}
+.band-w .card,.band-w .stat,.band-w .scroller .ucard,.band-w .scroller .ucard:nth-child(even),.band-w .arches .card,.band-w .arches .card:nth-child(2){background:#fff}
+.band-w .hex::before,.band-w .hexwrap:nth-child(even) .hex::before{background:#fff}
+.band-w .flow li,.band-w .time-pill{background:#fff}

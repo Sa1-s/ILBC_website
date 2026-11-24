@@ -144,12 +144,6 @@ home = f'''
 
 <div class="marquee" aria-label="I love being Catholic because of the Magisterium, the Catechism, Sacred Scripture, the Sacraments, the Smells and Bells"><div class="track">{ticker}</div></div>
 
-<section class="section s5"><div class="wrap"><div class="stats rounds" data-reveal>
-<div class="stat"><b data-count="5">0</b><small>connected units</small></div>
-<div class="stat"><b data-count="3">0</b><small>parish formats to choose from</small></div>
-<div class="stat"><b><span data-count="60">0</span>–<span data-count="75">0</span></b><small>minutes to plan for a gathering</small></div>
-<div class="stat"><b data-count="5">0</b><small>twelve-week studies to continue</small></div></div></div></section>
-
 <section class="section s3"><div class="wrap split">
 <div>{head('The invitation', 'A familiar gesture can open the door to a fuller faith')}
 <p data-reveal>A familiar gesture, a passage heard at Mass, or a question about Church teaching can open the door to a fuller understanding of Catholic faith. I Love Being Catholic begins with those recognizable experiences and helps participants follow the connections among belief, worship, prayer, and daily choices.</p>
