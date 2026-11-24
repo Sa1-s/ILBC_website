@@ -1108,3 +1108,19 @@ a{color:var(--maroon-d)}
 /* Round 13: Leader guide hex — match the salmon/coral used by Participant guide exactly, no yellow */
 .honey .row.a .hexwrap:nth-child(2) .hex,.honey .row.a .hexwrap:nth-child(2) .hex:nth-child(n){background:#d4243b}
 .honey .row.a .hexwrap:nth-child(2) .hex::before{background:linear-gradient(160deg,#ef4b5f,#d4243b)}
+
+/* Round 14: tighten the home hero (top-align columns, trim bottom padding, smaller orbit)
+   so there's no dead gap before the ticker; ticker recolored to cream so the page reads
+   pink -> cream -> pink -> cream instead of pink -> pink -> pink; to-top/to-next now sit
+   side by side in the same maroon style */
+.hero .wrap{align-items:start;padding-bottom:clamp(24px,3vw,48px)}
+.stage{width:min(420px,78vw)}
+.marquee{background:var(--mint-5)}
+.marquee{border-block-color:#f0dfcc}
+
+.to-top{background:var(--maroon);color:#fff;border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-b),0 10px 22px rgba(122,10,32,.25);bottom:calc(16px + env(safe-area-inset-bottom,0px));right:calc(66px + env(safe-area-inset-right,0px))}
+@media(hover:hover){.to-top:hover{background:#7a0d26}}
+.to-next,.to-next:nth-child(n){bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+
+/* Round 15: lift to-top/to-next above the "Your journey" pill so they don't overlap it */
+.to-top,.to-next,.to-next:nth-child(n){bottom:calc(70px + env(safe-area-inset-bottom,0px))}
