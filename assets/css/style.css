@@ -1087,3 +1087,15 @@ a{color:var(--maroon-d)}
 .cross-box::after{border-color:var(--gold-b)}
 .cross-box path{stroke:var(--ink)}
 .cross-box .lbl{color:var(--ink-2)}
+
+/* Round 11: lighter pastel baby-pink bands everywhere, pink hero instead of white,
+   honeycomb "Leader guide" recolored out of yellow into the same maroon/crimson family */
+.section.band-w{background:#fdeceb}
+.on-ink.band-w{background:#fdeceb}
+.band-w+.cta{background:#fdeceb}
+.hero{background:#fdeceb}
+
+.honey .row.a .hexwrap:nth-child(2) .hex,.honey .row.a .hexwrap:nth-child(2) .hex:nth-child(n){background:#7c1a30}
+.honey .row.a .hexwrap:nth-child(2) .hex::before{background:linear-gradient(160deg,#b43a52,#7c1a30)}
+.honey .row.a .hexwrap:nth-child(2) .hex h3{color:#fff}
+.honey .row.a .hexwrap:nth-child(2) .hex p{color:#fbe9e3}
