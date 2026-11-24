@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """I Love Being Catholic v2 — generates the 7 pages. Copy comes from the brochure (sentence case headings)."""
 import os
-OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = '/home/claude/v2'
 import time
 V = str(int(time.time()))
 
@@ -62,10 +62,10 @@ def page(fname, title, desc, body, cta_html=None):
     body = _re.sub(r'<section class="section(?: s[1-5])?(?: on-ink)?', _band, body)
     html = f'''<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="ILBC">
-<title>{title}</title><meta name="description" content="{desc}"><meta name="theme-color" content="#c1e2be">
+<title>{title}</title><meta name="description" content="{desc}"><meta name="theme-color" content="#a20e2b">
 <meta property="og:title" content="{title}"><meta property="og:description" content="{desc}"><meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="assets/img/favicon.png"><link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-<link rel="preload" href="assets/fonts/noto-serif-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/crimson-pro-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css?v={V}"></head><body>
 {header(fname)}
 <main id="main">

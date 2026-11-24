@@ -40,7 +40,7 @@
   function toast(msg) { toastEl.textContent = msg; toastEl.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(function () { toastEl.classList.remove('show'); }, 3200); }
   function confetti() {
     if (reduce) return;
-    var cols = ['#c1e2be', '#cae9be', '#d6ebc3', '#ddf0c7', '#e6f8d1', '#1d2421'];
+    var cols = ['#a20e2b', '#d4a73f', '#efd0c6', '#f5e4cb', '#fcf5e6', '#241a1b'];
     for (var i = 0; i < 46; i++) {
       var c = document.createElement('i'); c.className = 'confetti';
       c.style.left = Math.random() * 100 + 'vw'; c.style.background = cols[i % cols.length];
