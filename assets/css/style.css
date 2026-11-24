@@ -1022,3 +1022,22 @@ a{color:var(--maroon-d)}
 .study:not(.dev)::after{content:"Available now";order:-1;margin:0 0 10px;align-self:flex-start;font:700 .6rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;background:var(--gold-b);color:#3a0613;padding:6px 9px;border-radius:99px}
 .study.dev::after{padding:6px 9px;border-radius:99px;letter-spacing:.12em}
 .study{padding-top:16px}
+
+/* ===== Round 7 ===== */
+/* menu: tap outside to close */
+.nav-scrim{position:fixed;inset:0;z-index:140;background:rgba(30,3,12,.45);opacity:0;pointer-events:none;transition:opacity .3s}
+@media(max-width:1130px){body.nav-on .nav-scrim{opacity:1;pointer-events:auto}}
+/* next-page arrow, stacked above back-to-top */
+.to-next{position:fixed;z-index:139;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(126px + env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px 0 18px;border-radius:99px;background:var(--maroon);color:#fff;text-decoration:none;font:600 .85rem/1 var(--sans);border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-b),0 10px 22px rgba(122,10,32,.25);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .3s,transform .3s var(--bounce)}
+.to-next.show{opacity:1;transform:none;pointer-events:auto}
+@media(hover:hover){.to-next:hover{background:#7a0d26}.to-next:hover svg{transform:translateX(3px)}}
+.to-next svg{transition:transform .2s}
+.to-next:focus-visible{outline:3px solid var(--gold-b);outline-offset:3px}
+@media(max-width:860px){.to-next{width:42px;height:42px;padding:0;justify-content:center;bottom:calc(116px + env(safe-area-inset-bottom,0px))}.to-next .nx-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}}
+/* 60–75 minutes box */
+.time-pill{border-radius:20px;padding:14px 20px;gap:4px 10px;align-items:baseline}
+@media(max-width:700px){.time-pill{display:flex;flex-direction:column;align-items:flex-start;width:100%;box-sizing:border-box}}
+/* Learn more toggle */
+.res-card .tog{display:inline-flex;align-items:center;gap:8px;color:var(--maroon)}
+.res-card .tog::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);transition:transform .25s}
+.res-card .tog[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}

@@ -65,6 +65,7 @@ def footer():
 <div class="cookie" id="cookie" role="dialog" aria-labelledby="ck-t" aria-live="polite" hidden>
 <div><b id="ck-t">Cookies and storage</b><p>This site uses only essential browser storage to remember your progress, checklists and cookie choice. It does not use advertising or tracking cookies.</p></div>
 <div class="ck-btns"><button type="button" class="btn small" data-ck="all">Accept</button><button type="button" class="btn light small" data-ck="essential">Essential only</button></div></div>
+<a class="to-next" href="invitation.html" aria-label="Next page"><span class="nx-t">Next</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 <button class="to-top" aria-label="Back to top">{UP}</button>'''
 
 def cta(title='An invitation to begin', text='Bring together adults who want to understand their faith more fully, including those who are unsure where to begin. Choose a format that suits your community, invite people warmly, and make room for their questions.',
@@ -290,7 +291,7 @@ R = [
  (I_PHONES, 'The podcast companion', 'Short audio episodes introduce or revisit each unit through explanation and conversation. They supplement the written materials, whether participants are preparing for a gathering or reflecting afterward.',
   ['Short audio episodes for each unit', 'Explanation and conversation', 'Transcripts accompany the audio', 'Source notes accompany the audio']),
 ]
-rc = ''.join(f'''<article class="card res-card" data-reveal style="--d:{i%2*.1:.1f}s"><div class="ic">{ic}</div><h3>{t}</h3><p>{p}</p><button class="tog" type="button" aria-expanded="false">What is inside</button><div class="more"><div><ul>{''.join(f"<li>{x}</li>" for x in items)}</ul></div></div></article>''' for i, (ic, t, p, items) in enumerate(R))
+rc = ''.join(f'''<article class="card res-card" data-reveal style="--d:{i%2*.1:.1f}s"><div class="ic">{ic}</div><h3>{t}</h3><p>{p}</p><button class="tog" type="button" aria-expanded="false">Learn more</button><div class="more"><div><ul>{''.join(f"<li>{x}</li>" for x in items)}</ul></div></div></article>''' for i, (ic, t, p, items) in enumerate(R))
 resources = f'''{phero('Resources', 'Resources for leaders and participants', 'A narrative guide, a leader guide, a participant guide, and podcasts with transcripts.', 'prayer.jpg')}
 <section class="section s5"><div class="wrap">{head('Prepared and available', 'Four resources, one structure', 'The companion resources follow the same unit structure and learning aims. Participants reading at home, facilitators preparing a gathering, and listeners revisiting a topic encounter a consistent explanation of the faith.')}
 <div class="grid g2">{rc}</div>
