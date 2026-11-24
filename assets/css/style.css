@@ -1049,3 +1049,8 @@ a{color:var(--maroon-d)}
 .pullquote blockquote{margin:0 auto;max-width:34ch;font:500 clamp(1.3rem,2.7vw,1.85rem)/1.45 var(--serif);letter-spacing:.005em}
 .pullquote em{font-style:italic;font-weight:700;color:#f3cf6e}
 .pq-rule{display:block;width:64px;height:3px;border-radius:3px;margin:20px auto 0;background:var(--gold-b)}
+/* Round 8: plain Next button, straight photos and labels, credit without pill */
+.to-next{border:0;box-shadow:0 8px 18px rgba(122,10,32,.22)}
+.photo,.photo:nth-child(n),.sticker,.sticker:nth-child(n),.fmt-panel .sticker{--rot:0deg!important;rotate:0deg}
+.credit,.credit:nth-child(n){background:none!important;border:0!important;box-shadow:none!important;padding:0!important}
+.credit img{filter:none}
