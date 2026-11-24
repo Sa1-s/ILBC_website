@@ -1135,3 +1135,12 @@ a{color:var(--maroon-d)}
 .nav a[aria-current="page"],.nav a.cta[aria-current="page"]{background:rgba(252,245,230,.65);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);color:var(--maroon-d);border:2px solid rgba(252,245,230,.9)}
 @media(max-width:860px){.nav a[aria-current="page"]{background:rgba(252,245,230,.75);color:var(--maroon-d);border-color:rgba(252,245,230,.95)}}
 @media(max-width:860px){.nav a[aria-current="page"]{background:var(--cream)}}
+
+/* Round 18: nav active pill solid cream (translucent cream over the maroon bar was
+   compositing into a pink/salmon tone, not true cream) + a lighter, uniform fade
+   across the whole hero photo instead of a gradient that only faded the edges */
+.nav a[aria-current="page"],.nav a.cta[aria-current="page"]{background:var(--cream);color:var(--maroon-d);border:2px solid var(--cream)}
+@media(max-width:860px){.nav a[aria-current="page"]{background:var(--cream);color:var(--maroon-d);border-color:var(--cream)}}
+
+.page-hero::before{background:rgba(252,245,230,.42)}
+@media(max-width:700px){.page-hero::before{background:rgba(252,245,230,.5)}}
