@@ -1099,3 +1099,12 @@ a{color:var(--maroon-d)}
 .honey .row.a .hexwrap:nth-child(2) .hex::before{background:linear-gradient(160deg,#b43a52,#7c1a30)}
 .honey .row.a .hexwrap:nth-child(2) .hex h3{color:#fff}
 .honey .row.a .hexwrap:nth-child(2) .hex p{color:#fbe9e3}
+
+/* Round 12: kill the white page-hero curve (match the pink band right after it),
+   and stop the hero's big cream blobs from washing the home hero back to near-white */
+:root{--bg:#fdeceb}
+.blob.a,.blob.b{background:#f6dcd8;opacity:.6}
+
+/* Round 13: Leader guide hex — match the salmon/coral used by Participant guide exactly, no yellow */
+.honey .row.a .hexwrap:nth-child(2) .hex,.honey .row.a .hexwrap:nth-child(2) .hex:nth-child(n){background:#d4243b}
+.honey .row.a .hexwrap:nth-child(2) .hex::before{background:linear-gradient(160deg,#ef4b5f,#d4243b)}
