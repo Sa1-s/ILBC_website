@@ -32,7 +32,7 @@ def header(cur):
     items = ''.join(f'<li><a href="{h}"{AC if h == cur else ""}>{t}</a></li>' for h, t in NAV)
     return f'''<a class="skip" href="#main">Skip to content</a><div class="progress" aria-hidden="true"></div>
 <header class="header"><div class="bar">
-<a class="brand" href="index.html" aria-label="{SITE} — home"><img src="assets/img/seal-512.png" alt="" width="46" height="46"><b>{SITE}</b></a>
+<a class="brand" href="index.html" aria-label="{SITE} — home"><img src="assets/img/sacred-heart-color-sq.png" alt="" width="46" height="46"><b>{SITE}</b></a>
 <button class="burger" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
 <nav class="nav" id="nav" aria-label="Main"><ul>{items}<li><a class="cta" href="get-started.html"{AC if cur == 'get-started.html' else ''}>Get started</a></li></ul></nav>
 </div></header>'''
@@ -47,7 +47,7 @@ def footer():
     links = ''.join(f'<li><a href="{h}">{t}</a></li>' for h, t in NAV + [('get-started.html', 'Get started')])
     return f'''<footer class="foot"><div class="foot-glow" aria-hidden="true"></div>
 <div class="wrap foot-grid">
-<div class="foot-brand"><div class="fb"><img src="assets/img/seal-512.png" alt="" width="72" height="72"><b>{SITE}</b></div>
+<div class="foot-brand"><div class="fb"><img src="assets/img/sacred-heart-white-sq.png" alt="" width="72" height="72"><b>{SITE}</b></div>
 <p>Five connected units. One welcoming invitation.</p>
 <div class="foot-ico"><a href="mailto:liguori@liguori.org" aria-label="Email Liguori Publications">{I_MAIL}</a><a href="tel:+18003259521" aria-label="Call Liguori Publications">{I_PHONE}</a><a href="https://www.liguori.org" target="_blank" rel="noopener" aria-label="Visit liguori.org">{I_GLOBE}</a></div></div>
 <div><h4>Explore</h4><ul class="foot-list">{links}</ul></div>
@@ -70,7 +70,7 @@ def footer():
 
 def cta(title='An invitation to begin', text='Bring together adults who want to understand their faith more fully, including those who are unsure where to begin. Choose a format that suits your community, invite people warmly, and make room for their questions.',
         b1=('get-started.html', 'Plan your next step'), b2=('units.html', 'Explore the five units')):
-    return f'''<section class="cta on-ink"><div class="wrap"><img class="s" src="assets/img/seal-512.png" alt="" width="110" height="110" data-reveal="zoom">
+    return f'''<section class="cta on-ink"><div class="wrap"><img class="s" src="assets/img/sacred-heart-color-sq.png" alt="" width="110" height="110" data-reveal="zoom">
 <h2 data-reveal>{title}</h2><p data-reveal style="--d:.1s">{text}</p>
 <div class="btns" data-reveal style="--d:.2s"><a class="btn gold" href="{b1[0]}">{b1[1]}{ARROW}</a><a class="btn light" href="{b2[0]}">{b2[1]}</a></div></div></section>'''
 
@@ -138,7 +138,7 @@ home = f'''
 <strong class="tagline hero-line" style="--i:4">Five connected units. One welcoming invitation.</strong>
 <div class="btns hero-line" style="--i:5"><a class="btn" href="units.html">Explore the five units{ARROW}</a><a class="btn light" href="settings.html">Choose a setting</a></div></div>
 <div class="stage hero-line" style="--i:3"><div class="orbit"></div><div class="orbit-wrap">{orbit}</div>
-<div class="seal"><img src="assets/img/seal-512.png" alt="I Love Being Catholic seal: a golden cross with rays on a green field" width="300" height="300"></div>
+<div class="seal"><img src="assets/img/sacred-heart-color-sq.png" alt="I Love Being Catholic Sacred Heart emblem: cross, flame and crown of thorns" width="300" height="300"></div>
 </div>
 </div></section>
 

@@ -1167,3 +1167,34 @@ a{color:var(--maroon-d)}
 .pq-mark{font-size:3rem;margin-bottom:6px}
 .pullquote blockquote{max-width:30ch;font-size:clamp(1rem,1.8vw,1.3rem)}
 .pq-rule{width:48px;height:2px;margin:14px auto 0}
+
+/* ===================================================================
+   Round 23: retheme to the "I Love Being Catholic" Heritage Brand Kit,
+   Edition 04 — crimson / golden yellow / near-white / muted evergreen,
+   Georgia for headlines and Arial for body and screen text, per the
+   brand book. Logos swapped to the official Sacred Heart / wordmark /
+   full-lockup artwork in build2.py. Content and layout are unchanged —
+   only color tokens, type and logo artwork move.
+   =================================================================== */
+:root{
+  --maroon:#be1838;        /* crimson */
+  --maroon-d:#8f1129;      /* crimson, darkened for hovers/borders */
+  --gold-b:#d99719;        /* golden yellow */
+  --cream:#fffefc;         /* near-white */
+  --evergreen:#24563d;     /* muted evergreen */
+  --evergreen-d:#163c2a;   /* muted evergreen, darkened */
+  --bg:#fffefc;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:Arial,'Helvetica Neue',Helvetica,sans-serif;
+}
+.hero{background:var(--cream)}
+.blob.a,.blob.b{background:#eef3ee;opacity:.7}
+.section.band-w,.on-ink.band-w,.band-w+.cta{background:#f3f7f4}
+
+/* dark "ink" chrome now uses the brand's muted evergreen instead of a second crimson tone */
+.foot{background:linear-gradient(180deg,var(--evergreen) 0%,var(--evergreen-d) 100%)}
+
+/* Sacred Heart badges in circular/square UI slots: contain, don't stretch the portrait artwork */
+.brand img,.foot-brand .fb img,.cta img.s,.stage .seal img{object-fit:contain;background:transparent}
+.stage .seal{background:var(--cream);border-color:var(--gold-b)}
+.cta img.s{border-color:var(--gold-b)}
