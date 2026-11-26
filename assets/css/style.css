@@ -1288,3 +1288,22 @@ a{color:var(--maroon-d)}
 
 /* Remove the white curved patch under every page's hero banner */
 .page-hero::after{display:none}
+
+/* ===================================================================
+   Round 26: bring the hero curve back (just fix its color), drop the
+   remaining italic in the homepage ticker, and nudge the learning-aims
+   arrows so their visual tip, not just their bounding box, sits centered
+   =================================================================== */
+
+/* The curve itself was fine — it only looked like a stray white patch because it was
+   tied to --bg (now near-white). Pin it to the pink band every inner page lands on
+   right after the hero, so it always blends instead of tracking --bg. */
+.page-hero::after{display:block;background:#fdeceb}
+
+/* Ticker: "I love being Catholic because of <unit>" — drop the italic on the unit name */
+.marquee span{font-style:normal}
+
+/* The chevron's border corners meet off-center, so its visual tip sat closer to the
+   next card than the bounding box suggested — nudge it back toward the true midpoint */
+.aims-flow .card:not(:last-child)::before{right:-23px}
+@media(max-width:860px){.aims-flow .card:not(:last-child)::before{bottom:-27px}}
