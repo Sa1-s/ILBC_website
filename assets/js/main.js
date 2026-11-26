@@ -76,7 +76,7 @@
   function onScroll() {
     var y = window.scrollY, max = document.documentElement.scrollHeight - innerHeight;
     if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? y / max : 0) + ')';
-    if (toTop) toTop.classList.toggle('show', y > 700); if (toNext) toNext.classList.toggle('show', y > 300);
+    if (toTop) toTop.classList.toggle('show', y > 700); if (toNext) toNext.classList.toggle('show', y > 300); if (toPrev) toPrev.classList.toggle('show', y > 300);
     if (header && !(nav && nav.classList.contains('open'))) header.classList.toggle('hide', y > lastY && y > 260);
     lastY = y;
     if (!reduce) $$('[data-parallax]').forEach(function (el) { var r = el.parentElement.getBoundingClientRect(); if (r.bottom > 0 && r.top < innerHeight) el.style.setProperty('--py', (y * 0.16).toFixed(1) + 'px'); });
@@ -85,7 +85,7 @@
   addEventListener('scroll', function () { if (!ticking) { requestAnimationFrame(onScroll); ticking = true; } }, { passive: true });
   var ORDER = ['index.html', 'invitation.html', 'settings.html', 'units.html', 'resources.html', 'beginning.html', 'get-started.html'];
   var NAMES = ['Home', 'Welcome', 'Formats', 'Lessons', 'Library', 'Pathway', 'Get started'];
-  var toNext = $('.to-next');
+  var toNext = $('.to-next'), toPrev = $('.to-prev');
   function setNext() {
     if (!toNext) return; var f = location.pathname.split('/').pop() || 'index.html', i = ORDER.indexOf(f);
     if (i < 0) i = 0;
@@ -93,7 +93,14 @@
     toNext.setAttribute('href', ORDER[k]); toNext.setAttribute('aria-label', (last ? 'Back to ' : 'Next page: ') + NAMES[k]);
     $('.nx-t', toNext).textContent = (last ? 'Back to ' : 'Next: ') + NAMES[k];
   }
-  setNext(); window.addEventListener('popstate', setNext);
+  function setPrev() {
+    if (!toPrev) return; var f = location.pathname.split('/').pop() || 'index.html', i = ORDER.indexOf(f);
+    if (i < 0) i = 0;
+    var first = i === 0, k = first ? ORDER.length - 1 : i - 1;
+    toPrev.setAttribute('href', ORDER[k]); toPrev.setAttribute('aria-label', 'Previous page: ' + NAMES[k]);
+    $('.pv-t', toPrev).textContent = NAMES[k];
+  }
+  setNext(); setPrev(); window.addEventListener('popstate', function () { setNext(); setPrev(); });
   if (toTop) toTop.addEventListener('click', function () { scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
   function setNav(o) { if (!nav) return; nav.classList.toggle('open', o); document.body.classList.toggle('nav-on', o); burger.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; header.classList.remove('hide'); }
   var scrim = document.createElement('div'); scrim.className = 'nav-scrim'; document.body.appendChild(scrim);
@@ -206,7 +213,7 @@
     Promise.all([fetchPage(u), new Promise(function (r) { setTimeout(r, reduce ? 0 : 240); })]).then(function (r) {
       var doc = new DOMParser().parseFromString(r[0], 'text/html'), nm = doc.getElementById('main'); if (!nm) throw 0;
       document.title = doc.title; var md = doc.querySelector('meta[name=description]'), cd = $('meta[name=description]'); if (md && cd) cd.setAttribute('content', md.getAttribute('content'));
-      main.innerHTML = nm.innerHTML; if (push) history.pushState({}, '', u.href); setActive(u); setNext(); scrollTo(0, 0); header.classList.remove('hide');
+      main.innerHTML = nm.innerHTML; if (push) history.pushState({}, '', u.href); setActive(u); setNext(); setPrev(); scrollTo(0, 0); header.classList.remove('hide');
       main.classList.remove('is-leaving'); if (!reduce) { main.classList.remove('is-entering'); void main.offsetWidth; main.classList.add('is-entering'); }
       initPage(); if (u.hash && !/^#u\d$/.test(u.hash)) setTimeout(function () { var t = $(u.hash); if (t) t.scrollIntoView(); }, 80);
       main.focus({ preventScroll: true }); busy = false;

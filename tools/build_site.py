@@ -10,6 +10,7 @@ def svg(inner, extra='fill="none" stroke="currentColor" stroke-width="1.9" strok
 BOLD = 'fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"'
 ARROW = svg('<path d="M5 12h14M13 6l6 6-6 6"/>', BOLD)
 UP = svg('<path d="M12 19V5M6 11l6-6 6 6"/>', BOLD)
+BACK = svg('<path d="M19 12H5M11 6l-6 6 6 6"/>', BOLD)
 I_CAL = svg('<rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4M8 14h2M14 14h2M8 17.5h2"/>')
 I_HOUSE = svg('<path d="M3 21V10.5L12 3l9 7.5V21zM9.5 21v-6.5h5V21"/>')
 I_FLAME = svg('<path d="M12 2.5c.5 3.2 4.8 5.2 4.8 10a4.8 4.8 0 0 1-9.6 0c0-2 .9-3.3 2.2-4.4.1 1.7.9 2.6 1.9 2.8C11.8 8.6 11.2 5.6 12 2.5z"/><path d="M9 21.5h6"/>')
@@ -65,6 +66,7 @@ def footer():
 <div class="cookie" id="cookie" role="dialog" aria-labelledby="ck-t" aria-live="polite" hidden>
 <div><b id="ck-t">Cookies and storage</b><p>This site uses only essential browser storage to remember your progress, checklists and cookie choice. It does not use advertising or tracking cookies.</p></div>
 <div class="ck-btns"><button type="button" class="btn small" data-ck="all">Accept</button><button type="button" class="btn light small" data-ck="essential">Essential only</button></div></div>
+<a class="to-prev" href="index.html" aria-label="Previous page">{BACK}<span class="pv-t">Back</span></a>
 <a class="to-next" href="invitation.html" aria-label="Next page"><span class="nx-t">Next</span><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 <button class="to-top" aria-label="Back to top">{UP}</button>'''
 
@@ -300,7 +302,9 @@ steps = [('1', '', 'The five-week introduction', 'Five connected units that welc
          ('∞', 'ready', 'A continuing pathway', 'A parish can begin with the five-week introduction and then choose the twelve-week studies that best serve its people.')]
 path = '<div class="path"><div class="path-line" aria-hidden="true"><i></i></div>' + ''.join(f'<div class="pstep" data-reveal><div class="pin {c}">{n}</div><div><h3>{t}</h3><p>{d}</p></div></div>' for n, c, t, d in steps) + '</div>'
 studies = [('The Catechism of the Catholic Church', ''), ('The Second Vatican Council', ''), ('Sacred Scripture', 'dev'), ('The Sacraments', 'dev'), ('The Smells and Bells of Catholicism', 'dev')]
-sh = ''.join(f'<div class="study {d}" data-reveal style="--d:{i*.08:.2f}s"><div class="w">12<small>weeks</small></div><h4>{t}</h4><span class="sticker {"gold" if not d else ""}">{"Ready for use" if not d else "Available from Oct 1, 2027"}</span></div>' for i, (t, d) in enumerate(studies))
+def _study_pill(d):
+    return '' if not d else '<span class="sticker">Available from Oct 1, 2027</span>'
+sh = ''.join(f'<div class="study {d}" data-reveal style="--d:{i*.08:.2f}s"><div class="w">12<small>weeks</small></div><h4>{t}</h4>{_study_pill(d)}</div>' for i, (t, d) in enumerate(studies))
 beginning = f'''{phero('A beginning, not an ending', 'A beginning, not an ending', 'An ongoing journey of discovery, conversation, and growth in faith.', 'wedding.jpg')}
 <section class="section s5" style="padding-bottom:30px"><div class="wrap" style="max-width:900px"><figure class="pullquote" data-reveal><span class="pq-mark" aria-hidden="true">“</span><blockquote>I Love Being Catholic is more than a five-week experience. It is <em>an invitation to begin an ongoing journey</em> of discovery, conversation, and growth in faith.</blockquote><span class="pq-rule" aria-hidden="true"></span></figure></div></section>
 <section class="section s4"><div class="wrap split" style="align-items:start">

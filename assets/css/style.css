@@ -1198,3 +1198,74 @@ a{color:var(--maroon-d)}
 .brand img,.foot-brand .fb img,.cta img.s,.stage .seal img{object-fit:contain;background:transparent}
 .stage .seal{background:var(--cream);border-color:var(--gold-b)}
 .cta img.s{border-color:var(--gold-b)}
+
+/* ===================================================================
+   Round 24: post-retheme polish pass — darker red, pull-quote fixes,
+   friendlier format-card icons, all-red honeycomb, a back button to
+   match the existing next/top buttons, border + no gold ring on the
+   learning-aims connector, full-width Sunday dots, a red callout +
+   cross, de-centered pull-quote, no "Ready for use" pill (now handled
+   in build2.py), equal-height contact columns with a slimmer form
+   button.
+   =================================================================== */
+
+/* 1. Darker red across the whole site (buttons, nav, accents all key off this token) */
+:root{--maroon:#9c122b;--maroon-d:#6e0d1e}
+
+/* 2 & 10. Pull-quote: straight (not italic) red emphasis, text no longer centered */
+.pullquote{text-align:left;background:radial-gradient(120% 90% at 50% 0%,#8f1129 0%,var(--maroon) 45%,#3d0712 100%)}
+.pullquote blockquote{margin:0;max-width:none}
+.pullquote em{font-style:normal;font-weight:800;color:#ff6b6b}
+.pq-rule{margin:14px 0 0}
+
+/* 3. The three format-card icons: varied gradients + a playful hover bounce instead of flat maroon squares */
+.arches .card .ic{border-radius:50%;width:60px;height:60px;box-shadow:0 8px 18px rgba(61,7,18,.3)}
+.arches .card .ic svg{width:30px;height:30px}
+.arches>*:nth-child(1) .ic{background:linear-gradient(145deg,#ff7a59,#c21f3a)}
+.arches>*:nth-child(2) .ic{background:linear-gradient(145deg,#ff4d6d,#8f1129)}
+.arches>*:nth-child(3) .ic{background:linear-gradient(145deg,#ffa15c,#9c122b)}
+@keyframes icWiggle{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-5px) rotate(-8deg)}}
+@media(hover:hover){.arches .card:hover .ic{animation:icWiggle .6s var(--bounce)}}
+
+/* 4. Honeycomb: drop every gold/white/green panel, replace with four distinct red shades */
+.honey .hex .ic{background:#fff5f2!important;color:var(--maroon-d)}
+.honey .row.a .hexwrap:nth-child(1) .hex,.honey .row.a .hexwrap:nth-child(1) .hex:nth-child(n){background:#7a0f28}
+.honey .row.a .hexwrap:nth-child(1) .hex::before{background:linear-gradient(160deg,#a4203a,#7a0f28)}
+.honey .row.a .hexwrap:nth-child(2) .hex,.honey .row.a .hexwrap:nth-child(2) .hex:nth-child(n){background:#d4243b}
+.honey .row.a .hexwrap:nth-child(2) .hex::before{background:linear-gradient(160deg,#ff6a57,#d4243b)}
+.honey .row.a .hexwrap:nth-child(2) .hex h3{color:#fff}.honey .row.a .hexwrap:nth-child(2) .hex p{color:#fbe9e3}
+.honey .row.b .hexwrap:nth-child(1) .hex{background:#c21f3a}
+.honey .row.b .hexwrap:nth-child(1) .hex::before{background:linear-gradient(160deg,#ef4b5f,#c21f3a)}
+.honey .row.b .hexwrap:nth-child(2) .hex{background:#4b0a1a}
+.honey .row.b .hexwrap:nth-child(2) .hex::before{background:linear-gradient(160deg,#7a0f28,#4b0a1a)}
+
+/* 5. A "back" floating button to match the existing next/top pair */
+.to-prev{position:fixed;z-index:139;right:calc(116px + env(safe-area-inset-right,0px));bottom:calc(70px + env(safe-area-inset-bottom,0px));width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--paper);color:var(--maroon);border:2px solid var(--edge-soft);box-shadow:0 10px 22px rgba(61,7,18,.18);opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .3s,transform .3s var(--bounce);text-decoration:none}
+.to-prev.show{opacity:1;transform:none;pointer-events:auto}
+.to-prev svg{width:20px;height:20px}
+.to-prev .pv-t{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.to-prev:focus-visible{outline:3px solid var(--gold-b);outline-offset:3px}
+@media(hover:hover){.to-prev:hover{background:#fdeceb}}
+
+/* 6 & 7. Learning-aims connector: swap the thin text glyph for a bold chevron matching the
+   site's other arrows, give the cards a visible border, and drop the gold ring */
+.aims-flow .card{border:2px solid var(--maroon-d);background:#fff}
+.aims-flow .card:not(:last-child)::after{content:"";box-shadow:none}
+.aims-flow .card:not(:last-child)::before{content:"";position:absolute;z-index:2;right:-29px;top:50%;width:11px;height:11px;transform:translateY(-50%) rotate(45deg);border-top:3px solid #fff;border-right:3px solid #fff}
+@media(max-width:860px){.aims-flow .card:not(:last-child)::before{right:auto;left:50%;top:auto;bottom:-32px;transform:translateX(-50%) rotate(135deg)}}
+
+/* 8. Spread the Sunday/Night dot row to fill the width of its paragraph column */
+.sched{justify-content:space-between;width:100%}
+
+/* 9. The dashed "How every unit begins" callout, in a shade of red */
+.callout{background:#fbe3e0;border-color:var(--maroon-d)}
+
+/* The sign-of-the-cross icon, in red */
+.cross-box path{stroke:var(--maroon)}
+
+/* 12 & 13. Contact section: equal-height columns, a little less red / a little more form */
+.contact{align-items:stretch;grid-template-columns:.8fr 1.2fr}
+.contact-card{display:flex;flex-direction:column}
+
+/* 14. A smaller submit button, scoped to the enquiry form only — every other button is untouched */
+.contact form .btn{padding:12px 22px;min-height:42px;font-size:.92rem}
