@@ -1298,7 +1298,7 @@ a{color:var(--maroon-d)}
 /* The curve itself was fine — it only looked like a stray white patch because it was
    tied to --bg (now near-white). Pin it to the pink band every inner page lands on
    right after the hero, so it always blends instead of tracking --bg. */
-.page-hero::after{display:block;background:#fdeceb}
+.page-hero::after{display:block;background:#f3f7f4}
 
 /* Ticker: "I love being Catholic because of <unit>" — drop the italic on the unit name */
 .marquee span{font-style:normal}
