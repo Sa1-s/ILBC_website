@@ -1269,3 +1269,22 @@ a{color:var(--maroon-d)}
 
 /* 14. A smaller submit button, scoped to the enquiry form only — every other button is untouched */
 .contact form .btn{padding:12px 22px;min-height:42px;font-size:.92rem}
+
+/* ===================================================================
+   Round 25: four follow-up fixes
+   =================================================================== */
+
+/* The submit button was stretching to the form's full grid width — shrink it to its content */
+.contact form .btn{justify-self:start;width:auto}
+
+/* Make the new "back" button match the maroon/white styling of the next & top buttons,
+   so all three floating arrows read as the same family instead of two colors */
+.to-prev{background:var(--maroon);color:#fff;border:2px solid #fff;box-shadow:0 0 0 2px var(--gold-b),0 10px 22px rgba(61,7,18,.25)}
+@media(hover:hover){.to-prev:hover{background:#7a0d26}}
+
+/* Drop the gradient connector line behind the learning-aims chevrons entirely —
+   it was showing through as a red line right after each arrow */
+.aims-flow::before{display:none}
+
+/* Remove the white curved patch under every page's hero banner */
+.page-hero::after{display:none}
